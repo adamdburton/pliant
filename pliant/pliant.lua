@@ -16,7 +16,7 @@ local IsValid = IsValid
 local rawget = rawget
 local rawset = rawset
 
-module('articulate')
+module('pliant')
 
 local drivers = {}
 local connections = {}
