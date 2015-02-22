@@ -1,0 +1,31 @@
+{
+	"name": "adamdburton/pliant",
+	"description": "Query builder for Garry's Mod",
+	"homepage": "https://github.com/adamdburton/pliant",
+	"tags": [ "database", "query builder" ],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Adam Burton",
+			"homepage": "http://burt0n.net",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/adamdburton/pliant/issues"
+	},
+	"autorun": {
+		"server": [
+			"pliant/pliant.lua",
+			"classes/*",
+			"drivers/*"
+		]
+	},
+	"require": {
+		"adamdburton/stratum": "1.*"
+	},
+	"suggest": {
+		"drakehawke/mysqloo": "Module for using the MySQL driver",
+		"blackawps/tmysql4": "Module for using the MySQL driver"
+	}
+}
