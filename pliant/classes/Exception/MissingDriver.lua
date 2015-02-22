@@ -1,1 +1,1 @@
-exception 'ArticulateMissingDriverException' extends 'Exception' is { }
+exception 'PliantMissingDriverException' extends 'Exception' is { }

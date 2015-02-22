@@ -1,1 +1,1 @@
-class 'ArticulateConnectionErrorException' extends 'Exception' is { }
+class 'PliantConnectionErrorException' extends 'Exception' is { }

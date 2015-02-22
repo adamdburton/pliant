@@ -1,1 +1,1 @@
-class 'ArticulateQueryErrorException' extends 'Exception' is { }
+class 'PliantQueryErrorException' extends 'Exception' is { }

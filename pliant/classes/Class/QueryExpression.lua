@@ -1,4 +1,4 @@
-class 'ArticulateQueryExpression' is {
+class 'PliantQueryExpression' is {
 	
 	value = nil,
 	

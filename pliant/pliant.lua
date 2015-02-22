@@ -36,19 +36,19 @@ function Connection(driver, connectionInfo)
 		return new (drivers[name], unpack(connectionInfo))
 	end)
 	catch ({
-		['ArticulateMissingDriverException'] = function(err)
+		['PliantMissingDriverException'] = function(err)
 			
 		end,
-		['ArticulateConnectionErrorException'] = function(err)
+		['PliantConnectionErrorException'] = function(err)
 			
 		end
 	})
 end
 
 function QueryBuilder(connection)
-	return new ('ArticulateQueryBuilder', connection)
+	return new ('PliantQueryBuilder', connection)
 end
 
 function ModelQueryBuilder(connection, model)
-	return new ('ArticulateModelQueryBuilder', connection):setModel(model)
+	return new ('PliantModelQueryBuilder', connection):setModel(model)
 end

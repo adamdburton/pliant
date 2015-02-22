@@ -1,4 +1,4 @@
-class 'SQLiteArticulateDriver' extends 'ArticulateDriver' implements 'ArticulateDriverInterface' is {
+class 'SQLitePliantDriver' extends 'PliantDriver' implements 'PliantDriverInterface' is {
 
 	__construct = function(self)
 		
@@ -16,7 +16,7 @@ class 'SQLiteArticulateDriver' extends 'ArticulateDriver' implements 'Articulate
 			if errorCallback then
 				errorCallback(sql.LastError())
 			else
-				throw ('ArticulateQueryErrorException', sql.LastError())
+				throw ('PliantQueryErrorException', sql.LastError())
 			end
 			
 		else if successCallback then
@@ -39,4 +39,4 @@ class 'SQLiteArticulateDriver' extends 'ArticulateDriver' implements 'Articulate
 	
 }
 
-articulate.RegisterDriver('sqlite', 'SQLiteArticulateDriver')
+articulate.RegisterDriver('sqlite', 'SQLitePliantDriver')

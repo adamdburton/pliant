@@ -1,6 +1,6 @@
 {
 	"name": "adamdburton/pliant",
-	"description": "Query builder for Garry's Mod",
+	"description": "Query builder for Garry's Mod with drivers for multiple database implementations",
 	"homepage": "https://github.com/adamdburton/pliant",
 	"tags": [ "database", "query builder" ],
 	"license": "MIT",

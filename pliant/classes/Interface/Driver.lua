@@ -1,4 +1,4 @@
-interface 'ArticulateDriverInterface' {
+interface 'PliantDriverInterface' {
 	
 	connection = nil,
 	connected = false,

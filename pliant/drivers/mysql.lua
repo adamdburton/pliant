@@ -1,7 +1,7 @@
 pcall(require, 'mysqloo')
 pcall(require, 'tmysql4')
 
-class 'MySQLArticulateDriver' extends 'ArticulateDriver' implements 'ArticulateDriverInterface' is {
+class 'MySQLPliantDriver' extends 'PliantDriver' implements 'PliantDriverInterface' is {
 	
 	__construct = function(self, hostname, username, password, database, port, socketPath)
 		
@@ -17,7 +17,7 @@ class 'MySQLArticulateDriver' extends 'ArticulateDriver' implements 'ArticulateD
 			end
 			
 			function dbConnection.onConnectionFailed(db, dbError)
-				throw ('ArticulateConnectionError', dbError)
+				throw ('PliantConnectionError', dbError)
 			end
 			
 			dbConnection:connect()
@@ -31,7 +31,7 @@ class 'MySQLArticulateDriver' extends 'ArticulateDriver' implements 'ArticulateD
 				self.connection = dbConnection
 				self.connected = true
 			elseif dbError then
-				throw ('ArticulateConnectionErrorException', dbError)
+				throw ('PliantConnectionErrorException', dbError)
 			end
 			
 		end
@@ -63,7 +63,7 @@ class 'MySQLArticulateDriver' extends 'ArticulateDriver' implements 'ArticulateD
 				if errorCallback then
 					errorCallback(err)
 				else
-					throw ('ArticulateQueryErrorException', err)
+					throw ('PliantQueryErrorException', err)
 				end
 			end
 	
@@ -93,4 +93,4 @@ class 'MySQLArticulateDriver' extends 'ArticulateDriver' implements 'ArticulateD
 	
 }
 
-articulate.RegisterDriver('mysql', 'MySQLArticulateDriver')
+articulate.RegisterDriver('mysql', 'MySQLPliantDriver')

@@ -1,4 +1,4 @@
-class 'ArticulateJoinClause' is {
+class 'PliantJoinClause' is {
 
 	builder = nil,
 	type = nil,
@@ -30,7 +30,7 @@ class 'ArticulateJoinClause' is {
 	end,
 	
 	whereNull = function(column, boolean)
-		return self:on(column, 'is', new ('ArticulateQueryExpression', 'null'), boolean or 'and', false)
+		return self:on(column, 'is', new ('PliantQueryExpression', 'null'), boolean or 'and', false)
 	end
 
 }

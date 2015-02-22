@@ -1,4 +1,4 @@
-class 'ArticulateQueryBuilder' is {
+class 'PliantQueryBuilder' is {
 	
 	connection = nil,
 	
@@ -37,12 +37,12 @@ class 'ArticulateQueryBuilder' is {
 	
 	join = function(self, table, one, operator, two, type, where)
 		if type(one) == 'function' then
-			local join = new ('ArticulateJoinClause', self, type, table)
+			local join = new ('PliantJoinClause', self, type, table)
 			one(join)
 			
 			table.insert(self.joins, join)
 		else
-			local join = new ('ArticulateJoinClause', self, type, table)
+			local join = new ('PliantJoinClause', self, type, table)
 			join:on(one, operator, two, 'and', where)
 			
 			table.insert(self.joins, join)

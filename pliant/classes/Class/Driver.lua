@@ -1,4 +1,4 @@
-class 'ArticulateDriver' is {
+class 'PliantDriver' is {
 	
 	connection = nil,
 	connected = false,
@@ -13,12 +13,12 @@ class 'ArticulateDriver' is {
 				sql:gsub('?', v, 1) -- Normal number
 			elseif type(v) == 'string' then
 				sql:gsub('?', self:escape(v), 1) -- Normal string
-			elseif type(v) == 'table' and v.__className and v.__className == 'ArticulateExpression' then
-				sql:gsub('?', tostring(v), 1) -- Articulate Expression
+			elseif type(v) == 'table' and v.__className and v.__className == 'PliantExpression' then
+				sql:gsub('?', tostring(v), 1) -- Pliant Expression
 			elseif type(v) == 'table' then
 				sql:gsub('?', self.mergeBinds('IN(' .. (string.rep('?, ', #v)):sub(1, -3) .. ')', v)) -- Table passed, lets concat them as an IN(), passing them back through this function!
 			else
-				throw ('ArticulateInvalidBindException', type(v) .. ' is an invalid bind type')
+				throw ('PliantInvalidBindException', type(v) .. ' is an invalid bind type')
 			end
 		end
 	end,
