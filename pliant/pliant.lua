@@ -48,7 +48,3 @@ end
 function QueryBuilder(connection)
 	return new ('PliantQueryBuilder', connection)
 end
-
-function ModelQueryBuilder(connection, model)
-	return new ('PliantModelQueryBuilder', connection):setModel(model)
-end
