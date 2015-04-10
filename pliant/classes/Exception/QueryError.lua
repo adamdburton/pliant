@@ -1,1 +1,1 @@
-class 'PliantQueryErrorException' extends 'Exception' is { }
+exception 'PliantQueryErrorException' extends 'Exception' is { }

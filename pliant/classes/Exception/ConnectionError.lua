@@ -1,1 +1,1 @@
-class 'PliantConnectionErrorException' extends 'Exception' is { }
+exception 'PliantConnectionErrorException' extends 'Exception' is { }

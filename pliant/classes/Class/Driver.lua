@@ -16,6 +16,12 @@ class 'PliantDriver' is {
 			elseif type(v) == 'table' and v.__className and v.__className == 'PliantExpression' then
 				sql:gsub('?', tostring(v), 1) -- Pliant Expression
 			elseif type(v) == 'table' then
+				for a, b in pairs(v) do
+					if type(v) == 'table' then
+						throw ('PliantInvalidBindException', type(v) .. ' is not allowed in an IN() statement')
+					end
+				end
+				
 				sql:gsub('?', self.mergeBinds('IN(' .. (string.rep('?, ', #v)):sub(1, -3) .. ')', v)) -- Table passed, lets concat them as an IN(), passing them back through this function!
 			else
 				throw ('PliantInvalidBindException', type(v) .. ' is an invalid bind type')
