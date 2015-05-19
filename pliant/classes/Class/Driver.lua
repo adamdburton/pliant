@@ -13,7 +13,7 @@ class 'PliantDriver' is {
 				sql:gsub('?', v, 1) -- Normal number
 			elseif type(v) == 'string' then
 				sql:gsub('?', self:escape(v), 1) -- Normal string
-			elseif type(v) == 'table' and v.__className and v.__className == 'PliantExpression' then
+			elseif type(v) == 'table' and v.__className and v.__className == 'PliantQueryExpression' then
 				sql:gsub('?', tostring(v), 1) -- Pliant Expression
 			elseif type(v) == 'table' then
 				for a, b in pairs(v) do
@@ -39,5 +39,9 @@ class 'PliantDriver' is {
 	
 	getLastInsertID = function(self)
 		return self.insertID
+	end,
+	
+	table = function(self, table)
+		return new ('PliantQueryBuilder', self):setTable(table)
 	end
 }

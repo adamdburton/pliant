@@ -45,6 +45,6 @@ function Connection(driver, connectionInfo)
 	})
 end
 
-function QueryBuilder(connection)
-	return new ('PliantQueryBuilder', connection)
+function Raw(sql)
+  return new ('PliantQueryExpression', sql)
 end

@@ -27,6 +27,26 @@ class 'PliantQueryBuilder' is {
 		for k, v in pairs({ ... }) do
 			table.insert(self.selects, v)
 		end
+		
+		return self
+	end,
+	
+	insert = function(self, ...)
+		self.type = 'INSERT'
+		
+		return self
+	end,
+	
+	update = function(self, ...)
+		self.type = 'UPDATE'
+		
+		return self
+	end,
+	
+	delete = function(self, ...)
+		self.type = 'DELETE'
+		
+		return self
 	end,
 	
 	with = function(self, ...)
@@ -63,7 +83,7 @@ class 'PliantQueryBuilder' is {
 		return self
 	end,
 	
-	get = function()
+	get = function(self)
 		local sql = self.type
 		
 		local compacts = { 'selects', 'joins', 'wheres', 'orderBys', 'groupBys' }
@@ -77,28 +97,32 @@ class 'PliantQueryBuilder' is {
 		return self.connection:query(sql, binds)
 	end,
 	
+	first = function(self)
+		return self:get()[0]
+	end,
+	
 	count = function(self, column)
 		self.selects = {} -- Reset selects, we only want the aggregate
 		
-		return self:select('COUNT(' .. tostring(column or '*') .. ') AS aggregate'):get():first().aggregate
+		return self:select('COUNT(' .. tostring(column or '*') .. ') AS aggregate'):first().aggregate
 	end,
 	
 	sum = function(self, column)
 		self.selects = {}
 		
-		return self:select('SUM(' .. tostring(column or '*') .. ') AS aggregate'):get():first().aggregate
+		return self:select('SUM(' .. tostring(column or '*') .. ') AS aggregate'):first().aggregate
 	end,
 	
 	average = function(self, column)
 		self.selects = {}
 		
-		return self:select('AVERAGE(' .. tostring(column or '*') .. ') AS aggregate'):get():first().aggregate
+		return self:select('AVERAGE(' .. tostring(column or '*') .. ') AS aggregate'):first().aggregate
 	end,
 
 	max = function(self, column)
 		self.selects = {}
 	
-		return self:select('MAX(' .. tostring(column or '*') .. ') AS aggregate'):get():first().aggregate
+		return self:select('MAX(' .. tostring(column or '*') .. ') AS aggregate')::first().aggregate
 	end,
 
 	min = function(self, column)
